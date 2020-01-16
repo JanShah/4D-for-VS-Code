@@ -1,0 +1,25 @@
+{
+    "name": "4d-methods",
+    "displayName": "4D Methods",
+    "description": "Syntax highlighting for 4D methods",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.41.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "4d",
+            "aliases": ["4D Methods", "4d"],
+            "extensions": [".text4d"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "4d",
+            "scopeName": "source.text4d",
+            "path": "./syntaxes/4d.tmLanguage.json"
+        }]
+    }
+}

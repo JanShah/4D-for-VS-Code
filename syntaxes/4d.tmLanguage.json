@@ -1,0 +1,96 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "4D Methods",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}, 
+		{
+			"include": "#apostrophe"
+		}, 
+		{
+			"include": "#variables"
+		}, 
+		{
+			"include": "#method-params"
+		}, 
+		{
+			"include": "#single-line-comment"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.4d",
+				"match": "\\b(If|while|for|return|End if|Else|Case of|End case)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.4d",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.4d",
+					"match": "\\\\."
+				}
+			]
+		},
+		"apostrophe": {
+			"name": "invalid.illegal.apostrophe.4d",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "invalid.illegal.4d",
+					"match": "\\\\."
+				}
+			]
+		},      
+		"variables": {
+            "name": "variable.local.4d",
+            "patterns": [
+				{
+					"name": "variable.local.4d",
+					"match": "(\\$)([a-zA-Z])(\\w+)"
+				}
+            ]
+		},
+		"method-params": {
+		
+            "name": "keyword.function.4d",
+            "patterns": [
+				{
+					"name": "keyword.function.4d",
+					"match": "\\$\\d+$"
+				}
+            ]
+		},
+		"single-line-comment": {
+            "begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.whitespace.comment.leading.4d"
+                },
+                "2": {
+                    "name": "comment.line.double-slash.4d"
+                },
+                "3": {
+                    "name": "punctuation.definition.comment.4d"
+                },
+                "4": {
+                    "name": "storage.type.internaldeclaration.4d"
+                },
+                "5": {
+                    "name": "punctuation.decorator.internaldeclaration.4d"
+                }
+            },
+            "end": "(?=^)",
+            "contentName": "comment.line.double-slash.4d"
+        }
+	},
+	"scopeName": "source.text4d"
+}
